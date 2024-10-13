@@ -1,0 +1,654 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-blue: #2f579a;
+    --secondary-blue: #3c6eb7;
+    --accent-orange: #e47023;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --background-light: #eae2e2;
+    --background-dark: #2b2d42;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    background-image: url('https://www.freepik.com/free-ai-image/india-republic-day-celebration-digital-art-with-people_94131686.htm#query=constitution&position=0&from_view=keyword&track=ais_hybrid&uuid=cc51cfca-39a2-4157-8fe6-4f6c49d89959');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+}
+
+/* Add a semi-transparent overlay to improve text readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: -1;
+}
+
+
+.constitution-parts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.constitution-part {
+    flex: 0 1 calc(25% - 1rem);
+    min-width: 200px;
+    height: 600px; /* Increased from 150px to 600px (400% of 150px) */
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.constitution-part:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+.flip-card-front {
+    background-color:#333333;
+    color: var(--text-light);
+}
+
+.flip-card-back {
+    background-color: var(--secondary-blue);
+    color: var(--text-light);
+    transform: rotateY(180deg);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: x-large;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-orange);
+}
+
+.logo {
+    display: flex;
+    align-items:center;
+    margin-left: 1rem;
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo-india {
+    background-color: #4CAF50;
+    color: white;
+    padding: 2px 4px;
+    margin-left: 5px;
+}
+/* Preloader styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.book {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 2s linear infinite;
+}
+
+.book-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-orange);
+    transform: rotateY(0deg) translateZ(25px);
+}
+
+.book-page {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    background-color: var(--text-light);
+    top: 2.5%;
+    left: 2.5%;
+    transform: rotateY(0deg);
+}
+
+@keyframes rotate {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Position below the link */
+    left: calc(50% + 80px); /* Center horizontally and shift right by 80px */
+    transform: translateX(-50%); /* Adjust to center */
+    background-color: #f8f9fa; /* Light background color */
+    border: 1px solid #ccc; /* Border for the dropdown */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    z-index: 30; /* Ensure it overlaps other content */
+    
+    height: 50vh; /* Set height to 50% of the viewport */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+}
+
+.group:hover .dropdown-menu {
+    opacity: 1; /* Show the dropdown on hover */
+}
+
+.dropdown-tiles {
+    display: flex; /* Use flexbox to arrange tiles side by side */
+    justify-content: center; /* Center tiles */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height of the dropdown menu */
+    z-index: 30;
+}
+
+.dropdown-tile {
+    background-color: #f9f9ea; /* Tile background color */
+    border-radius: 8px; /* Rounded corners */
+    margin: 10px; /* Space between tiles */
+    padding: 20px; /* Padding inside tiles */
+    width: 20vw; /* Width of each tile */
+    height: 100%; /* Set height to 100% of the dropdown menu */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    text-align: center; /* Center align text */
+    display: flex; /* Use flexbox for centering content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+.tile-text {
+    text-align: center;
+    margin-top: 10px; /* Space above additional text */
+    color: #fcf9f9; /* Text color for additional text */
+}
+
+.dropdown-item {
+    display: block; /* Make items block-level */
+    height: 80%;
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.dropdown-item:hover {
+    background-color: #EFF4F3; /* Change background on hover */
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.shopping-cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+}
+
+.modal-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+}
+
+.item-list, .cart-items {
+    margin-bottom: 20px;
+}
+
+.item, .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-total {
+    font-weight: bold;
+}
+
+.item-quantity {
+    width: 50px;
+    margin-left: 10px;
+}
+
+header {
+    background-color: rgb(163, 159, 159);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 150px;
+    align-items: center;
+    align-content: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.welcome-section {
+    background-image: url('https://img.freepik.com/free-photo/gavel-with-books-old-wooden-desk_93675-129364.jpg?ga=GA1.1.11639661.1728504161&semt=ais_hybrid-rr-similar'); /* Replace with the actual image URL */
+    background-size: cover;
+    background-position: center;
+    color: black; /* Set text color to black */
+    text-align: center;
+    padding: 50px 20px; /* Adjust padding as needed */
+    font-size: 2em; /* Adjust font size */
+    font-weight: bold;
+    height: 900px;
+    align-items: center;
+    align-content: center;
+}
+
+
+.blue-tile {
+    background-color: blue;
+    width: 100px; /* Set the width */
+    height: 300px; /* Set the height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 20px auto; /* Center the tile horizontally */
+}
+
+.know-more-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #ff0000; /* Red background */
+    border: none;
+    color: #ffffff; /* White text */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align content horizontally */
+    font-size: 1.25rem; /* Extra-large font size (20px in most browsers) */
+    font-weight: 900; /* Extra bold font weight */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    padding: 8px 16px; /* Add some padding */
+    border-radius: 20px; /* Round edges */
+    text-align: center; /* Center align text */
+    width: calc(100% - 20px); /* Full width minus padding */
+}
+
+.know-more-btn:hover {
+    transform: scale(1.05);
+}
+
+.chakra-icon {
+    margin-right: 8px;
+}
+
+.dropdown-tile {
+    position: relative;
+}
+
+footer {
+    background-color: #e4e0e0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-weight: 400;
+    font-size: larger;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.footer-container .flex {
+    justify-content: space-between;
+}
+
+footer h4 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+
+footer h5 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    text-decoration: underline;
+}
+
+footer p, footer li a {
+    font-size: 1.1rem;
+}
+
+footer li a {
+    position: relative;
+    text-decoration: none;
+}
+
+footer li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: var(--accent-orange);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+footer li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0px;
+    background-color: #E4C59E;
+}
+
+footer li a {
+    position: relative;
+    text-decoration: none;
+}
+
+footer li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: var(--accent-orange);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+footer li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Image slider styles */
+.image-slider-container {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 2%;
+}
+
+.image-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.slider-image {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit:contain;
+    height: 100%;
+    z-index: -10;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+/* Constitution slider styles */
+.constitution-slider-container {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-image: url('');
+}
+
+.constitution-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.constitution-slide {
+    width: 33.33%;
+    flex-shrink: 0;
+    padding: 20px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+.constitution-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    background-color: var(--secondary-blue);
+}
+
+.constitution-slide h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.constitution-slide p {
+    font-size: 1rem;
+}
+.nav-link, .mobile-nav-link {
+    font-weight: 500;
+    color: #fff;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover, .mobile-nav-link:hover {
+    color: var(--accent-orange);
+    transform: translateY(-3px);
+}
+
+.nav-link::after, .mobile-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: var(--accent-orange);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after, .mobile-nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.cta-button {
+    background-color: var(--accent-orange);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-blue);
+    transform: scale(1.05);
+}
+
+.search-input {
+    width: 200px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--accent-orange);
+}
+
+.search-button {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.search-button:hover {
+    color: var(--accent-orange);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1000; /* Ensure it overlaps other content */
+}
+
+.dropdown-tile {
+    background-color: #444;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-tile:hover {
+    background-color: var(--accent-orange);
+}
+
+.group:hover .dropdown-menu {
+    display: flex;
+}
+
+.image-slider-container {
+    position: relative;
+    z-index: 1; /* Lower z-index to ensure dropdown is on top */
+}
+
+.slider-image {
+    position: relative;
+    z-index: 0; /* Ensure images are below the dropdown */
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: block;
+    }
+}
+
+.custom-dropdown-width {
+    width: 40%;
+}

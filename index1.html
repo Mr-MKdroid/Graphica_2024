@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitution of India</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>The Constitution of India</h1>
+        <nav>
+            <ul>
+                <li><button onclick="showArticle(1)">Article 5</button></li>
+                <li><button onclick="showArticle(2)">Article 6</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- Article content will be loaded here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Constitution of India. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+</style>
+<script>
+    const articles = {
+        1: `
+            <h2>Article 5: Citizenship at the Commencement of the Constitution</h2>
+            <p>At the commencement of this Constitution, every person who has his domicile in the territory of India and —</p>
+            <ul>
+                <li>who was born in the territory of India; or</li>
+                <li>either of whose parents was born in the territory of India; or</li>
+                <li>who has been ordinarily resident in the territory of India for not less than five years immediately preceding such commencement,</li>
+            </ul>
+            <p>shall be a citizen of India.</p>
+        `,
+        2: `
+            <h2>Article 6: Rights of citizenship of certain persons who have migrated to India from Pakistan</h2>
+            <p>Notwithstanding anything in article 5, a person who has migrated to the territory of India from the territory now included in Pakistan shall be deemed to be a citizen of India at the commencement of this Constitution if—</p>
+            <ul>
+                <li>he or either of his parents or any of his grand-parents was born in India as defined in the Government of India Act, 1935 (as originally enacted); and</li>
+                <li>(i) in the case where such person has so migrated before the nineteenth day of July, 1948, he has been ordinarily resident in the territory of India since the date of his migration, or</li>
+                <li>(ii) in the case where such person has so migrated on or after the nineteenth day of July, 1948, he has been registered as a citizen of India by an officer appointed in that behalf by the Government of the Dominion of India on an application made by him therefor to such officer before the commencement of this Constitution in the form and manner prescribed by that Government:</li>
+            </ul>
+            <p>Provided that no person shall be so registered unless he has been resident in the territory of India for at least six months immediately preceding the date of his application.</p>
+        `
+        // Add more articles as needed
+    };
+
+    function showArticle(articleNumber) {
+        const content = document.getElementById('content');
+        content.innerHTML = articles[articleNumber];
+    }
+
+    // Load the first article by default
+    document.addEventListener('DOMContentLoaded', () => showArticle(1));
+</script>
