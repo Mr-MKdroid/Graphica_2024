@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of the Indian Constitution - Graphica</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #02034f;
+            color: white;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 80%;
+            height: 80vh;
+            perspective: 1000px;
+            margin: 2rem auto;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+            transition-delay: 2s;
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .flip-card-front {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .flip-card-back {
+            background-color: #1e40af;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .flip-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background-color: #fbbf24;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 2s linear;
+        }
+        .flip-card:hover::after {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <h1 class="text-4xl font-bold text-center mb-8 text-white">History of the Indian Constitution</h1>
+
+    <!-- Historical Context -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold">Historical Context</h2>
+                <p class="text-xl mt-4">Hover for 2 seconds to see details</p>
+            </div>
+            <div class="flip-card-back rounded-lg shadow-xl text-left">
+                <h2 class="text-3xl font-bold mb-4">Historical Context</h2>
+                <p>The Constitution was drafted after India gained independence from British rule on August 15, 1947.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Constituent Assembly -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold">Constituent Assembly</h2>
+                <p class="text-xl mt-4">Hover for 2 seconds to see details</p>
+            </div>
+            <div class="flip-card-back rounded-lg shadow-xl text-left">
+                <h2 class="text-3xl font-bold mb-4">Constituent Assembly</h2>
+                <p>The Constituent Assembly was formed in 1946, comprising elected representatives from various provinces and princely states.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diverse Representation -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold">Diverse Representation</h2>
+                <p class="text-xl mt-4">Hover for 2 seconds to see details</p>
+            </div>
+            <div class="flip-card-back rounded-lg shadow-xl text-left">
+                <h2 class="text-3xl font-bold mb-4">Diverse Representation</h2>
+                <p>The Assembly included members from different backgrounds, languages, and religions, ensuring a comprehensive representation of Indian society.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Continue with the remaining points... -->
+
+    <!-- Ongoing Evolution -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold">Ongoing Evolution</h2>
+                <p class="text-xl mt-4">Hover for 2 seconds to see details</p>
+            </div>
+            <div class="flip-card-back rounded-lg shadow-xl text-left">
+                <h2 class="text-3xl font-bold mb-4">Ongoing Evolution</h2>
+                <p>Since its adoption, the Constitution has undergone numerous amendments, reflecting the dynamic nature of Indian society.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
