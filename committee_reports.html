@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee Reports - Graphica</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #02034f;
+            color: white;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 80%;
+            height: 80vh;
+            perspective: 1000px;
+            margin: 2rem auto;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+            transition-delay: 2s;
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .flip-card-front {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .flip-card-back {
+            background-color: #1e40af;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .flip-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background-color: #fbbf24;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 2s linear;
+        }
+        .flip-card:hover::after {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <h1 class="text-4xl font-bold text-center mb-8 text-white">Sub-Committees of the Drafting Committee</h1>
+
+    <!-- Union Powers Committee -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold">Union Powers Committee</h2>
+                <p class="text-xl mt-4">Hover for 2 seconds to see details</p>
+            </div>
+            <div class="flip-card-back rounded-lg shadow-xl text-left">
+                <h2 class="text-3xl font-bold mb-4">Union Powers Committee</h2>
+                <p class="mb-4">Explored the distribution of powers between the center and states.</p>
+                <p>This committee played a crucial role in defining the federal structure of India, balancing the powers between the central government and the states.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fundamental Rights Committee -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold">Fundamental Rights Committee</h2>
+                <p class="text-xl mt-4">Hover for 2 seconds to see details</p>
+            </div>
+            <div class="flip-card-back rounded-lg shadow-xl text-left">
+                <h2 class="text-3xl font-bold mb-4">Fundamental Rights Committee</h2>
+                <p class="mb-4">Drafted provisions for individual rights, leading to significant debates about civil liberties and state powers.</p>
+                <p>This committee's work formed the basis of the Fundamental Rights section in the Indian Constitution, ensuring the protection of individual freedoms and rights.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minorities and Scheduled Areas Committees -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold">Minorities and Scheduled Areas Committees</h2>
+                <p class="text-xl mt-4">Hover for 2 seconds to see details</p>
+            </div>
+            <div class="flip-card-back rounded-lg shadow-xl text-left">
+                <h2 class="text-3xl font-bold mb-4">Minorities and Scheduled Areas Committees</h2>
+                <p class="mb-4">Explored the rights and interests of minority communities and scheduled areas.</p>
+                <p>This committee's work contributed to the development of policies and laws that promote social justice and equality for marginalized groups.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
